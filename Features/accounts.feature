@@ -4,7 +4,7 @@ Feature: Accounts
 
 Scenario: Subscriber-level user can sign in with valid credentials
 
-	Given user is on {page} page
+	Given user is on <page> page
 	When user inputs {username} in username field
 	And user inputs {password} in password field
 	And user clicks {sign-in} button
