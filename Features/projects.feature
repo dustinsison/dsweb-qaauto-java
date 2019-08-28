@@ -4,7 +4,6 @@ Feature: Projects
 
 Scenario: User can see project pages
 
-	Given user is on {page}
-	When user clicks {navigation_link} button
-	And user clicks {navigation_link} button
-	Then user should see {page} header
+	Given user is on "lavadrop" project page
+	Then user should see "LavaDrop" project page header
+	And project page test browser will close
