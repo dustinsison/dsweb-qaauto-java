@@ -10,7 +10,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Homepage {
-static WebDriver webDriver;
+
+	static WebDriver webDriver;
 	
 	@Given("^user is on homepage")
 	public void user_is_on_homepage() throws Throwable {
@@ -41,12 +42,12 @@ static WebDriver webDriver;
         }
 	}
 	
-//	@And("^user sees browser close")
-//	public void user_sees_browser_close() throws Throwable {
-//        // Close the browser and WebDriver
-//        webDriver.close();
-//        webDriver.quit();
-//	}
+	@And("^homepage test browser will close")
+	public void user_sees_browser_close() throws Throwable {
+        // Close the browser and WebDriver
+        webDriver.close();
+        webDriver.quit();
+	}
 	
 	private static boolean testHeader() {
         // Check whether the h1 equals passed variable

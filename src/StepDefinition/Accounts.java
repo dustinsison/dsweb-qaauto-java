@@ -13,7 +13,7 @@ public class Accounts {
 	
 	static WebDriver webDriver;
 	
-	@Given("^user is on \"(.*)\" page")
+	@Given("^user is on login page")
 	public void user_is_on_n(String page) throws Throwable {
 		
         // Local location of the ChromeDriver. Update the path to match your machine as needed.
@@ -28,9 +28,9 @@ public class Accounts {
         webDriver.manage().window().maximize();
         
         // Go to the page
-		webDriver.navigate().to("https://dustinsison.com/" + page);
+		webDriver.navigate().to("https://dustinsison.com/wp-login.php");
 		
-		System.out.println("Opened Chrome browser to " + page);
+		System.out.println("Opened Chrome browser to the login page");
 	}
 	
 	@When("^user clicks to sign-in with credentials")
@@ -77,7 +77,7 @@ public class Accounts {
         }
 	}
 	
-	@And("^user sees browser close")
+	@And("^account test browser will close")
 	public void user_sees_browser_close() throws Throwable {
         // Close the browser and WebDriver
         webDriver.close();
