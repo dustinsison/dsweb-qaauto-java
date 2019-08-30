@@ -44,9 +44,13 @@ public class Blog {
 	    System.out.println("- Clicked first blog title link");
 	}
 	
-	@Then("^user should see blog listing page")
-	public void user_should_see_blog_listing() throws Throwable {
-        if (testHeader()) {
+	@Then("^user should see \"(.*)\" blog listing page")
+	public void user_should_see_blog_listing(String blog) throws Throwable {
+		
+		// Gives a second for the page to load
+		Thread.sleep(1000);
+		
+        if (testHeader(blog)) {
             System.out.println("Verified on blog listing page");
         } else {
             System.out.println("Failed; Not on blog listing page");
@@ -62,6 +66,15 @@ public class Blog {
         }
 	}
 	
+	@And("^user clicks on \"(.*)\" blog link")
+	public void user_clicks_on_n_blog_link(String blog) throws Throwable {
+		
+	    // Select listed blog link in navigation menu
+	    webDriver.findElement(By.xpath("//ul[@id='primary-menu']/li/a[normalize-space(text())='"+blog+"']")).click();
+	        
+	    System.out.println("- Clicked " + blog + " blog link");
+	}
+	
 	@And("^blog test browser will close")
 	public void user_sees_browser_close() throws Throwable {
         // Close the browser and WebDriver
@@ -69,13 +82,12 @@ public class Blog {
         webDriver.quit();
 	}
 	
-	private static boolean testHeader() {
+	private static boolean testHeader(String title) {
         // Check whether the h1 equals passed variable
         if (webDriver.findElement(By.tagName("h1")).getText()
-                .equals("Projects Log")) {
+                .equals(title)) {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
         	System.out.println("- Current page: " + result);
-        	
             return true;
         } else {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
