@@ -95,7 +95,7 @@ public class Accounts {
 	}
 	
 	private static boolean testHeader(String header) {
-        // Check whether the h1 equals passed variable
+        // Check whether the header equals the passed variable
         if (webDriver.findElement(By.tagName("h1")).getText()
                 .equals(header)) {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
@@ -110,7 +110,7 @@ public class Accounts {
 	}
 	
 	private static boolean testError(String error) {
-        // Check whether the h1 equals passed variable
+        // Check whether the correct error is displaying
         if (webDriver.findElement(By.tagName("strong")).getText()
                 .equals(error)) {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
