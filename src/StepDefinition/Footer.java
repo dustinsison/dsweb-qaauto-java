@@ -3,7 +3,6 @@ package StepDefinition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -87,7 +86,7 @@ public class Footer {
 			System.out.println("- LinkedIn profile page verified");
 			} else if (actualTitle.equals("LinkedIn: Log In or Sign Up ")){
 				System.out.println("- LinkedIn has detected that the browser is being automated, "
-						+ "and is requiring you to sign-in to view this profile. please manually check this link");
+						+ "and is requiring you to sign-in to view this profile. Please manually check this link");
 			} else {
 				System.out.println("- LinkedIn profile page not verified; please manually check this link");
 				System.out.println("-- " + actualTitle);
@@ -124,7 +123,11 @@ public class Footer {
 	
 	@When("^user sees expected Email footer link")
 	public void user_sees_expected_email_link() throws Throwable {
+		
+		// Pulls the Email link in the footer
 		String mailto = (webDriver.findElement(By.xpath("//ul[@id='footer-menu']/li[4]/a")).getAttribute("href"));
+		
+		// Verifies that the email link is in the expected "mailto" format
 		if (mailto.equals("mailto:dsison34@gmail.com")) {
 			System.out.println("- Seeing expected email link: " + mailto);
 		} else {
@@ -133,7 +136,7 @@ public class Footer {
 	}
 		
 	private static boolean testFooter() {
-        // Check whether the h1 equals passed variable
+        // Check whether the footer is displaying the expected links
         if (webDriver.findElement(By.xpath("//ul[@id='footer-menu']/li[1]/a")).getText().equals("Twitter") 
         	& (webDriver.findElement(By.xpath("//ul[@id='footer-menu']/li[2]/a")).getText().equals("GitHub"))
         	& (webDriver.findElement(By.xpath("//ul[@id='footer-menu']/li[3]/a")).getText().equals("LinkedIn"))
@@ -146,6 +149,7 @@ public class Footer {
         	System.out.println("- Footer links visible: " + result1 + ", " + result2 + ", " + result3 + ", " + result4);
             return true;
         } else {
+        	System.out.println("- Footer content not matching defined expected test results. Please verify the footer manually");
             return false;
         }
 	}
