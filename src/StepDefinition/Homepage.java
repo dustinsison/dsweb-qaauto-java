@@ -40,6 +40,19 @@ public class Homepage {
         }
 	}
 	
+	@And("^user should see expected homepage header content")
+	public void user_sees_expected_homepage_header_content() throws Throwable {
+		
+		// Gives five seconds for the home page header content to load
+		Thread.sleep(5000);
+		
+		 if (webDriver.findElement(By.className("fluid-width-video-wrapper")).isDisplayed()) {
+	        	System.out.println("- HD header video is displaying");
+	        } else {
+	        	System.out.println("- HD header video is not displaying");
+	        }
+	}
+	
 	@And("^homepage test browser will close")
 	public void user_sees_browser_close() throws Throwable {
         // Close the browser and WebDriver
