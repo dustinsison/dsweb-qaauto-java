@@ -34,9 +34,9 @@ public class Homepage {
 	@Then("^user should see homepage header")
 	public void user_should_see_homepage_header() throws Throwable {
         if (testHeader()) {
-            System.out.println("Verified on Home page");
+            System.out.println("- Verified on Home page");
         } else {
-            System.out.println("Failed; Not on Home page");
+            System.out.println("- Failed; Not on Home page");
         }
 	}
 	
