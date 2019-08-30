@@ -14,7 +14,7 @@ public class Accounts {
 	static WebDriver webDriver;
 	
 	@Given("^user is on login page")
-	public void user_is_on_n(String page) throws Throwable {
+	public void user_is_on_login_page() throws Throwable {
 		
         // Local location of the ChromeDriver. Update the path to match your machine as needed.
         System.setProperty(
@@ -62,6 +62,7 @@ public class Accounts {
 	
 	@And("^user clicks sign-in button")
 	public void user_clicks_sign_in_button() throws Throwable {
+		
         // Click the Submit button
         webDriver.findElement(By.id("wp-submit")).click();
         
@@ -113,12 +114,12 @@ public class Accounts {
         if (webDriver.findElement(By.tagName("strong")).getText()
                 .equals(error)) {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
-        	System.out.println(error + " found");
+        	System.out.println(result + " error found");
         	
             return true;
         } else {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
-        	System.out.println("No " + error + " found");
+        	System.out.println("Unexpected " + result + " error found");
             return false;
         }
 	}
