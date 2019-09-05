@@ -33,7 +33,7 @@ public class Projects {
 	
 	@Then("^user should see \"(.*)\" project page header")
 	public void user_should_see_n_project_page_header(String project) throws Throwable {
-        if (testHeader()) {
+        if (testHeader(project)) {
             System.out.println("Verified on " + project);
         } else {
             System.out.println("Failed; Not on " + project + " page");
@@ -47,10 +47,10 @@ public class Projects {
         webDriver.quit();
 	}
 	
-	private static boolean testHeader() {
+	private static boolean testHeader(String project) {
         // Check whether the h1 equals passed variable
         if (webDriver.findElement(By.tagName("h1")).getText()
-                .equals("LavaDrop")) {
+                .equals(project)) {
         	String result = webDriver.findElement(By.tagName("h1")).getText();
         	System.out.println("- Current page: " + result);
         	
