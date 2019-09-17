@@ -119,6 +119,7 @@ public class Footer {
         // Close the browser and WebDriver
         webDriver.close();
         webDriver.quit();
+        System.out.println("Test completed. Closing browser.");
 	}
 	
 	@When("^user sees expected Email footer link")

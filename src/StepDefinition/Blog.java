@@ -51,18 +51,18 @@ public class Blog {
 		Thread.sleep(1000);
 		
         if (testHeader(blog)) {
-            System.out.println("Verified on blog listing page");
+            System.out.println("- Verified on " + blog + " blog listing page");
         } else {
-            System.out.println("Failed; Not on blog listing page");
+            System.out.println("- Failed; Not on expected blog listing page");
         }
 	}
 	
 	@Then("^user should see blog entry page")
 	public void user_should_see_blog_entry() throws Throwable {
         if (testBlogEntry()) {
-            System.out.println("Verified on blog entry page");
+            System.out.println("- Verified on blog entry page");
         } else {
-            System.out.println("Failed; Not on blog entry page");
+            System.out.println("- Failed; Not on blog entry page");
         }
 	}
 	
@@ -80,6 +80,7 @@ public class Blog {
         // Close the browser and WebDriver
         webDriver.close();
         webDriver.quit();
+        System.out.println("Test completed. Closing browser.");
 	}
 	
 	private static boolean testHeader(String title) {

@@ -59,9 +59,9 @@ public class NavigationMenu {
 	@Then("^user should see \"(.*)\" header")
 	public void user_should_see_page_header(String header) throws Throwable {
         if (testHeader(header)) {
-            System.out.println("Verified on " + header);
+            System.out.println("- Verified on " + header);
         } else {
-            System.out.println("Failed; Not on " + header + " page");
+            System.out.println("- Failed; Not on " + header + " page");
         }
 	}
 	
@@ -69,6 +69,8 @@ public class NavigationMenu {
 	public void user_hovers_over_n_navigation_link(String subnav) throws Throwable {
 		
 		// Moves mouse over navigation link to open submenu
+		
+		System.out.println("- Hovering over " + subnav + " navigation link");
 		
 			// Instantiate Action Class
 			Actions actions = new Actions(webDriver);
@@ -88,6 +90,7 @@ public class NavigationMenu {
 	public void user_clicks_subnav_link(String subnav) throws Throwable {
 	    // Select listed navigation link
 	    webDriver.findElement(By.id("menu-item-28")).click();
+	    System.out.println("- Clicking " + subnav + " subnavigation link");
 	}
 	
 	@And("^navigation menu test browser will close")
@@ -95,6 +98,7 @@ public class NavigationMenu {
         // Close the browser and WebDriver
         webDriver.close();
         webDriver.quit();
+        System.out.println("Test completed. Closing browser.");
 	}
 	
 	private static boolean testHeader(String header) {

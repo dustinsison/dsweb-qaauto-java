@@ -72,7 +72,7 @@ public class Accounts {
 	@Then("^user should see \"(.*)\" page header")
 	public void user_should_see_n_page_header(String header) throws Throwable {
         if (testHeader(header)) {
-            System.out.println("Verified on " + header);
+            System.out.println("Verified on " + header + " page");
         } else {
             System.out.println("Failed; Not on " + header + " page");
         }
@@ -83,6 +83,7 @@ public class Accounts {
         // Close the browser and WebDriver
         webDriver.close();
         webDriver.quit();
+        System.out.println("Test completed. Closing browser.");
 	}
 	
 	@Then("^user should see \"(.*)\" error message")

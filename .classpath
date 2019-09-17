@@ -23,5 +23,7 @@
 	<classpathentry kind="lib" path="/Users/dustinsison/eclipse-workspace/Software/Cucumber/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="/Users/dustinsison/eclipse-workspace/Software/Cucumber/junit-4.11.jar"/>
 	<classpathentry kind="lib" path="/Users/dustinsison/eclipse-workspace/Software/cucumber-picocontainer-1.2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/dustinsison/eclipse-workspace/Software/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="/Users/dustinsison/eclipse-workspace/Software/net.sf.jadclipse_3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

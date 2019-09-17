@@ -58,6 +58,7 @@ public class Homepage {
         // Close the browser and WebDriver
         webDriver.close();
         webDriver.quit();
+        System.out.println("Test completed. Closing browser.");
 	}
 	
 	private static boolean testHeader() {
